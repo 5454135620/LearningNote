@@ -71,6 +71,7 @@ class Zi extends Fu
 
 }
 
+
 class Operator
 {
 	void fun(Fu f)
@@ -80,7 +81,8 @@ class Operator
 			f.fun1();  
 			f.fun2();
 			//f.fun3();报错
-			/* 
+
+/* 
 			 *   Fu f = new Zi();  //类型提升  向上转型  相对=右
 			 *   //只能调用子类父类的共有方法 
 			 *   //所以f.fun3();错误  
@@ -89,7 +91,8 @@ class Operator
 			 * 多态方法调用子类对象特有属性：
 			 * */
 		    Zi z = (Zi)f;//类型强转 将父类的引用类型转化为子类类型   向下转型 
-		    z.fun3();
+
+z.fun3();
 			f.fun4();//类同
 		}
 		else if(f instanceof Fu)
@@ -147,3 +150,116 @@ public class Java多态总结 {
 	}
 
 }
+
+
+***
+package java08面向对象多态;
+
+/*
+ * object:是所有对象直接或者间接的父类  定义了所有对象都具备的功能
+ * 如果自定义类中有相同方法没有必要重新定义
+ * 
+ */
+
+class A extends Object
+{
+	private int num ;
+	A(int num)
+	{
+		this.num = num;
+	}
+	public boolean equals(Object obj)
+	{
+		//复写Object类中的equals方法  比较类中特有属性 成员变量
+		//此方法适用于类之间的比较  相同类之间的比较才有意义
+		if(!(obj instanceof A))
+			return false;
+		A d = (A) obj;
+		return this.num == d.num;	
+	}
+  
+}
+
+
+/*
+ * 网卡和主板的连接 可以通过规程接口 扩展提高电脑功能
+ * 
+ */
+
+interface PCI
+{//接口向上抽取的功能   实现网卡功能的转化   提高程序扩展性
+	public void open();
+	public void close();
+	
+}
+
+
+class MainBoard
+{
+	public void run()
+	{
+		System.out.println("启动");
+	}
+	public void usepci(PCI a)
+	{
+		if(a!=null)
+		{
+			a.open();
+			a.close();
+		}
+	}
+	
+	/*public void useNetcard(NetCard a)
+	{
+		a.open();
+		a.close();
+	}*/
+}
+
+class NetCard implements PCI
+{
+	public void open()
+	{
+		System.out.println("网卡系统打开！");
+	}
+	public void close()
+	{
+		System.out.println("网卡系统关闭！");
+	}
+
+}
+
+class SoundCard implements PCI
+{
+	public void open()
+	{
+		System.out.println("声卡系统打开！");
+	}
+	public void close()
+	{
+		System.out.println("声卡系统关闭！");
+	}
+
+}
+
+public class Java多态中成员的特点 {
+	public static void main(String args[])
+	{
+		/*MainBoard a = new MainBoard();
+		a.run();
+		//a.usepci(new NetCard());
+		a.usepci(null);//如果直接传入空操作 没有建立对象 就会空指针异常
+		a.usepci(new NetCard());
+		a.usepci(new SoundCard());
+		*/
+		A b = new A(4);
+		A c = new A(5);
+		
+		System.out.println(b。equals(c));//?
+	}
+
+}
+
+
+
+
