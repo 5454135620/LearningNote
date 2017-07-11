@@ -67,16 +67,17 @@ cat-photo-element {
   body {
     background-color: black;
     font-family: Monospace;
-    color: green;
+F    color: green;
   }
   .pink-text{
     color:pink;
+
 f  }
 </style>
 <h1 class="pink-text">Hello World!</h1> 以此调节冲突
 12. 在 HTML 中这些 class 如何排序是无所谓的。
 然而，在 <style> 部分中 class 声明的顺序却非常重要，第二个声明总是比第一个具有优先权。因为 .blue-text 是第二个声明，它覆盖了 .pink-text 属性。
-<style>
+F<style>
   body {
     background-color: black;
     font-family: Monospace;
@@ -121,3 +122,32 @@ f  }
   }
 16. 颜色的6位十六进制表达方式  #000000 black
 0颜色缺失 f最大亮度
+  16 个值和 6 个位置意味着我们有 16 的 6 次方，或者说超过 1600 万种可能的颜色。
+Hex code 遵循 red-green-blue（红-绿-蓝），或者叫 rgb 格式。
+  hex code 中的前两位表示颜色中红色的数量，第三四位代表绿色的数量，第五六位代表蓝色的数量。
+  第一和第二位使用 F （最大可能的数值），且在第三、第四、第五和第六位使用 0 （最小可能数值）。
+  #FF0000纯红色 （#F00）（rgb(255, 0,0)） 
+  #00FF00纯绿色（rgb(0,255,0)）
+  #0000FF纯蓝色（rgb(0, 0,255)）
+  #FFA500 橙色  （ rgb(255,165,0)）
+  #808080灰色
+  #111111 深黑色
+  在 CSS 中表示颜色的另一个方法是使用 rgb 值。
+代表黑色的 RGB 值看起来是下面的样子：
+rgb(0, 0, 0)
+代表白色的 RGB 值看起来是下面的样子：
+rgb(255, 255, 255)
+使用 rgb，你通过 0 至 255 之间的一个数字来指定每种颜色的亮度，而不是像 hex code 那样使用六个十六进制数字。
+如果你做个算术，16 乘以 16 总共有 256 个值，所以从零开始计数的 rgb，和 hex code 一样有完全相同数量的可能数值。
+让我们用黑色的 RGB 值 rgb(0, 0, 0) 替换掉 body 元素背景色的 hex code。
+  
+  17. 响应模式 适应电脑屏幕手机大小
+  Bootstrap将会根据你的屏幕的大小来调整HTML元素的大小 —— 强调 响应式设计的概念。
+通过响应式设计，你无需再为你的网站设计一个手机版的。它在任何尺寸的屏幕上看起来都会不错。 
+你仅需要通过添加下列代码到你的HTML开头来将Bootstrap添加到任意应用中：
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+  
+    <div class = container-fluid>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+    内容云云
+    <div>
