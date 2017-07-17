@@ -31,10 +31,13 @@ package java异常概述;
  *{
  *   一定会执行的语句；
  *}
+ *
+ *
+ *
  * */
 class Demo
-{
-	int div(int a,int b)
+{//程序提示此处需要异常处理  调用时用try
+	int div(int a,int b)throws Exception//功能上通过throws关键字声明功能可能会出现的问题
 	{
 		return a/b;
 	}
@@ -44,16 +47,16 @@ class Demo
 
 public class Java05异常概述 {
 	
-	public static void main(String[] args)
+	public static void main(String[] args)throws Exception//依然处理不了抛给虚拟机，默认方式解决，程序结束
 	{
 		Demo d = new Demo();
-		try
+		/*try
 		{
 			int x = d.div(4,0);//new AritchmeticException()
 			System.out.println("x="+x);
 		}
 		catch(Exception e)//异常对象引用 Exception e = new AritchmeticException()
-		{
+		{//内部类 函数 
 			//异常被处理   如果没有异常处理catch 系统抛出异常无人接手 虚拟机开始默认处理机制 导致程序停止 
 			System.out.println("/0");	
 			System.out.println(e.getMessage());// by zero
@@ -61,7 +64,9 @@ public class Java05异常概述 {
 			e.printStackTrace();//异常名称信息以及异常出现位置
 			//其实jvm默认的异常处理机制，就是在调用printStackTrace方法 。 打印异常的堆栈的跟踪信息。
 		}
-		
+		*/
+		int x = d.div(4,0);//new AritchmeticException()
+		System.out.println("x="+x);
 		System.out.println("over");	
 	
 	}
