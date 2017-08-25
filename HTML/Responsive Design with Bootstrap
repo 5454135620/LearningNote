@@ -1,1 +1,66 @@
 #响应式设计与引导
+
+# 响应式设计与引导（5hours）
+
+
+
+
+ - 1.Bootstrap（反应）：
+
+
+①定义：根据你的屏幕的大小来调整HTML元素的大小 —— 强调 响应式设计的概念。
+②操作：添加下列代码到你的HTML开头来将Bootstrap添加到任意应用中：
+
+<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.1/css/bootstrap.min.css"/>
+③div容器的使用：
+<div class= "类属性">
+<!-- 包含整个内容的HTML的文本内容-->
+</div>
+
+
+
+
+
+
+
+- 2.加图看BootStrap的适应模式：
+ >
+ //smaller-image是一种缩小图片大小的属性
+ //src="/images/relaxing-cat.jpg"加入图片方式
+ //加入图片在此图的垂直位置 需要加入img-responsive的属性（不加会图片显示水平）
+ 
+ <a href="#"><img class="smaller-image thick-green-border" src="/images/relaxing-cat.jpg">
+    
+  </a>
+  <a href="#"><img class=" thick-green-border img-responsive" 
+src="/images/running-cat.jpg">
+    
+ 
+
+ </a>
+ 
+- 3.让字居中适应屏幕大小：
+>
+<h2 class = "text-center red-text">CatPhotoApp</h2>
+
+- 4. Bootstrap风格的按钮（比默认按钮看起来好）
+  >
+   <button class = "btn">
+    <a>like</a>
+  </button>
+
+- 5.按钮大小一般与填充的文本大小一致，通过btn-block属性使按钮大小和界面一致;
+ > <button class="btn btn-block">Like</button>
+
+- 6.改变按钮颜色：
+ > <button class="btn btn-block btn-primary">Like</button>
+ > //Bootstrap中的btn-primary属性  是蓝色的
+ 
+- 7.可能操作的按钮：
+>Bootstrap自带了一些预定义的按钮颜色。浅蓝色 btn-info 被用在那些用户可能会采取的操作上。
+><button class = "btn btn-info btn-block">info</button>
+
+- 8.危险操作：
+>Bootstrap自带了一些预定义的按钮颜色。红色btn-danger被用来提醒用户该操作具有“破坏性”，例如删除一张猫的图片。
+><button class="btn btn-block btn-danger">Delete</button>
+
